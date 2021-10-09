@@ -1,0 +1,2 @@
+rootProject.name = "TodoCoroutines"
+include ':app'
