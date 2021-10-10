@@ -3,23 +3,23 @@ package com.example.todocoroutines.ui
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.todocoroutines.data.database.User
+import com.example.todocoroutines.data.database.Todo
 import com.example.todocoroutines.data.repository.TodoRepository
 import kotlinx.coroutines.launch
 
 class MainViewModel(private val repository: TodoRepository):ViewModel() {
 
-    fun insertUser(user: User) {
+    fun insertUser(todo: Todo) {
         viewModelScope.launch {
-            repository.insertUser(user)
+            repository.insertUser(todo)
         }
     }
 
-    fun deleteUser(user: User) {
+    fun deleteUser(todo: Todo) {
         viewModelScope.launch {
-            repository.deleteUser(user)
+            repository.deleteUser(todo)
         }
     }
 
-    val getAllUser: LiveData<List<User>> = repository.getAllUser()
+    val getAllTodo: LiveData<List<Todo>> = repository.getAllUser()
 }

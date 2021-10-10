@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "user")
-data class User(
+data class Todo(
 
     @PrimaryKey(autoGenerate = true)
     val userId: Int = 0,

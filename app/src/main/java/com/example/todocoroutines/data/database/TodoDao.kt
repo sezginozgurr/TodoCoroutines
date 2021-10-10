@@ -7,14 +7,14 @@ import androidx.room.Insert
 import androidx.room.Query
 
 @Dao
-interface UserDAO {
+interface TodoDao {
 
     @Insert
-    suspend fun insert(user: User)
+    suspend fun insert(todo: Todo)
 
     @Delete
-    suspend fun delete(user: User)
+    suspend fun delete(todo: Todo)
 
     @Query("SELECT*FROM user")
-    fun getAllUser(): LiveData<List<User>>
+    fun getAllTodo(): LiveData<List<Todo>>
 }

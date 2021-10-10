@@ -2,8 +2,7 @@ package com.example.todocoroutines.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
-import com.example.todocoroutines.data.database.User
+import com.example.todocoroutines.data.database.Todo
 import com.example.todocoroutines.databinding.ActivityMainBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -21,13 +20,13 @@ class MainActivity : AppCompatActivity() {
             val todoTitle = binding.todoTitle.text.toString()
             val todoDescription = binding.todoDescription.text.toString()
 
-            val user = User(userName = todoTitle, userSurname = todoDescription)
+            val user = Todo(userName = todoTitle, userSurname = todoDescription)
 
             mainViewModel.insertUser(user)
         }
 
         var result = ""
-        mainViewModel.getAllUser.observe(this, {
+        mainViewModel.getAllTodo.observe(this, {
             result = ""
 
             it.forEach { todo ->
